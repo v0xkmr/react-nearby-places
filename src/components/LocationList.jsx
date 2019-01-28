@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class LocationList extends Component {
 
     state = {
@@ -21,7 +22,7 @@ class LocationList extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=${this.state.options.radius}&type=${this.state.options.type}&keyword=${this.state.options.name}&key=dummy`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=${this.state.options.radius}&type=${this.state.options.type}&keyword=${this.state.options.name}&key=${process.env.APIKEY}`)
             .then((res) => {
                 console.log(res.data.results)
                 this.setState({ nearBy: res.data.results });

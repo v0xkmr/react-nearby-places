@@ -22,9 +22,8 @@ class LocationList extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=${this.state.options.radius}&type=${this.state.options.type}&keyword=${this.state.options.name}&key=${process.env.APIKEY}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=${this.state.options.radius}&type=${this.state.options.type}&keyword=${this.state.options.name}&key=AIzaSyBN2l5NwX3tDt8vUXKPPlEPSFhoZxzNhiM`)
             .then((res) => {
-                console.log(res.data.results)
                 this.setState({ nearBy: res.data.results });
             })
             .catch((err) => { console.log(err) })
